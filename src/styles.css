@@ -1061,7 +1061,7 @@ h3 {
 .cta-section {
   background:
     linear-gradient(120deg, rgba(139, 107, 61, 0.7), rgba(79, 66, 49, 0.72)),
-    url("/images/consultation-measure.png") center/cover;
+    url("/images/consultation-measure.webp") center/cover;
   color: #fffdf8;
 }
 
@@ -1685,7 +1685,7 @@ h3 {
 .business-cta {
   background:
     linear-gradient(120deg, rgba(139, 107, 61, 0.7), rgba(79, 66, 49, 0.72)),
-    url("/images/consultation-measure.png") center/cover;
+    url("/images/consultation-measure.webp") center/cover;
   color: #fffdf8;
 }
 

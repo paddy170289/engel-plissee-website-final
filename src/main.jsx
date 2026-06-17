@@ -46,7 +46,7 @@ const services = [
   {
     title: "Plissees nach Maß",
     href: "#plissees",
-    image: "/images/roof-window-plissee.png",
+    image: "/images/roof-window-plissee.webp",
     description:
       "Individuell gefertigte Plissees für Standardfenster, Dachfenster und Sonderformen.",
     benefits: ["flexibel positionierbar", "große Stoffauswahl", "pflegeleichte Materialien"]
@@ -54,7 +54,7 @@ const services = [
   {
     title: "Rollo-Screen",
     href: "#rollo-screen",
-    image: "/images/rollo-screen.png",
+    image: "/images/rollo-screen.webp",
     description:
       "Moderner Licht-, Wärme- und Sichtschutz für kleine und große Fensterflächen.",
     benefits: ["manuell oder motorisiert", "seitliche Führung möglich", "langlebig und elegant"]
@@ -62,7 +62,7 @@ const services = [
   {
     title: "Insektenschutz",
     href: "#insektenschutz",
-    image: "/images/insect-screen.png",
+    image: "/images/insect-screen.webp",
     description:
       "Plissierte Schutzlösungen für frische Luft ohne Insekten, Pollen und Verunreinigungen.",
     benefits: ["lichtdurchlässig", "unauffällige Optik", "für viele Fenstertypen"]
@@ -70,7 +70,7 @@ const services = [
   {
     title: "Stoffberatung",
     href: "#stoffe",
-    image: "/images/consultation-measure.png",
+    image: "/images/consultation-measure.webp",
     description:
       "Feine Stoffe, passende Profile und eine ruhige Auswahl, die zu Raum und Nutzung passt.",
     benefits: ["transparent bis abdunkelnd", "edle Naturtöne", "persönlich vor Ort"]
@@ -107,36 +107,36 @@ const fabricTypes = [
 const profileHighlights = [
   {
     title: "Klassisch hell",
-    image: "/images/profiles/image00279.png",
+    image: "/images/profiles/image00279.webp",
     alt: "Helles Plissee-Profil in Weiß",
     text: "Für helle Fensterrahmen, ruhige Räume und eine besonders leichte, unauffällige Wirkung."
   },
   {
     title: "Warme Holzoptik",
-    image: "/images/profiles/image00278.png",
+    image: "/images/profiles/image00278.webp",
     alt: "Plissee-Profil in warmer Holzoptik",
     text: "Für wohnliche Einrichtungen, Naturtöne und Fensterbereiche mit warmer Materialwirkung."
   },
   {
     title: "Modern dunkel",
-    image: "/images/profiles/image00276.png",
+    image: "/images/profiles/image00276.webp",
     alt: "Dunkles Plissee-Profil in Anthrazit",
     text: "Für moderne Architektur, klare Kontraste und elegante Akzente an Rahmen und Glas."
   }
 ];
 
 const profileFinishes = [
-  ["Reinweiß", "/images/profiles/image00271.png"],
-  ["Softweiß", "/images/profiles/image00272.png"],
-  ["Creme", "/images/profiles/image00274.png"],
-  ["Sand / Goldton", "/images/profiles/image00273.png"],
-  ["Eiche warm", "/images/profiles/image00275.png"],
-  ["Holzstruktur", "/images/profiles/image00280.png"],
-  ["Nussbaum", "/images/profiles/image00270.png"],
-  ["Dunkelbraun", "/images/profiles/image00277.png"],
-  ["Mahagoni", "/images/profiles/image00282.png"],
-  ["Anthrazit", "/images/profiles/image00276.png"],
-  ["Tiefschwarz", "/images/profiles/image00281.png"]
+  ["Reinweiß", "/images/profiles/image00271.webp"],
+  ["Softweiß", "/images/profiles/image00272.webp"],
+  ["Creme", "/images/profiles/image00274.webp"],
+  ["Sand / Goldton", "/images/profiles/image00273.webp"],
+  ["Eiche warm", "/images/profiles/image00275.webp"],
+  ["Holzstruktur", "/images/profiles/image00280.webp"],
+  ["Nussbaum", "/images/profiles/image00270.webp"],
+  ["Dunkelbraun", "/images/profiles/image00277.webp"],
+  ["Mahagoni", "/images/profiles/image00282.webp"],
+  ["Anthrazit", "/images/profiles/image00276.webp"],
+  ["Tiefschwarz", "/images/profiles/image00281.webp"]
 ];
 
 const steps = [
@@ -220,8 +220,6 @@ const legalRoutes = {
     title: "Datenschutzerklärung",
     intro:
       "Diese Datenschutzerklärung beschreibt, welche personenbezogenen Daten beim Besuch dieser Website und bei der Kontaktaufnahme verarbeitet werden.",
-    notice:
-      "Hinweis: Die Erklärung ist auf den aktuellen technischen Stand dieser Website abgestimmt und sollte vor produktiver Nutzung final rechtlich geprüft werden.",
     sections: [
       {
         title: "1. Verantwortliche Stelle",
@@ -238,9 +236,9 @@ const legalRoutes = {
       {
         title: "2. Hosting und Server-Logfiles",
         body: [
-          "Diese Website wird bei einem Hosting-Anbieter betrieben. Der konkrete Hosting-Anbieter ist vor Veröffentlichung zu ergänzen.",
+          "Diese Website wird über GitHub Pages bereitgestellt, einen Dienst der GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA.",
           "Beim Aufruf der Website können technisch notwendige Zugriffsdaten verarbeitet werden, zum Beispiel IP-Adresse, Datum und Uhrzeit des Zugriffs, aufgerufene Seiten, Browsertyp, Betriebssystem und Referrer-URL. Diese Daten dienen der sicheren und stabilen Bereitstellung der Website.",
-          "Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse liegt im sicheren und fehlerfreien Betrieb der Website."
+          "Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse liegt im sicheren, schnellen und fehlerfreien Betrieb der Website. Weitere Informationen zur Datenverarbeitung durch GitHub finden Sie in den Datenschutzhinweisen von GitHub."
         ]
       },
       {
@@ -434,12 +432,12 @@ const legalRoutes = {
 };
 
 const gallery = [
-  ["/images/engel-hero.png", "Moderner Wohnraum mit maßgefertigten Plissees"],
-  ["/images/bedroom-blackout.png", "Ruhiges Schlafzimmer mit abdunkelndem Plissee"],
-  ["/images/roof-window-plissee.png", "Dachfenster mit passgenauem Plissee"],
-  ["/images/rollo-screen.png", "Rollo-Screen im hellen Essbereich"],
-  ["/images/insect-screen.png", "Plissierter Insektenschutz an der Terrassentür"],
-  ["/images/fabric-detail.png", "Stoffe und Profilmuster"]
+  ["/images/engel-hero.webp", "Moderner Wohnraum mit maßgefertigten Plissees"],
+  ["/images/bedroom-blackout.webp", "Ruhiges Schlafzimmer mit abdunkelndem Plissee"],
+  ["/images/roof-window-plissee.webp", "Dachfenster mit passgenauem Plissee"],
+  ["/images/rollo-screen.webp", "Rollo-Screen im hellen Essbereich"],
+  ["/images/insect-screen.webp", "Plissierter Insektenschutz an der Terrassentür"],
+  ["/images/fabric-detail.webp", "Stoffe und Profilmuster"]
 ];
 
 function Reveal({ as: Tag = "div", className = "", children, style }) {
@@ -602,7 +600,7 @@ function BusinessPage({ onBusinessInquiry }) {
           </div>
         </div>
         <div className="business-hero-image" aria-hidden="true">
-          <img src="/images/business-hero-commercial.jpg" alt="" />
+          <img src="/images/business-hero-commercial.webp" alt="" />
         </div>
       </section>
 
@@ -945,7 +943,7 @@ function App() {
       <section className="hero" id="start">
         <img
           className="hero-image"
-          src="/images/engel-hero.png"
+          src="/images/engel-hero.webp"
           alt="Heller Wohnraum mit großen Fenstern und maßgefertigten Plissees"
         />
         <div className="hero-overlay" />
@@ -1049,7 +1047,7 @@ function App() {
           />
         </Reveal>
         <Reveal className="feature-image-wrap">
-          <img src="/images/plissee-detail.png" alt="Plissee nach Maß am Fenster" />
+          <img src="/images/plissee-detail.webp" alt="Plissee nach Maß am Fenster" />
         </Reveal>
       </section>
 
@@ -1105,7 +1103,7 @@ function App() {
       <section className="fabric-section" id="stoffe">
         <div className="fabric-layout">
           <Reveal className="fabric-visual">
-            <img src="/images/fabric-detail.png" alt="Stoffmuster und Profile für die Beratung" />
+            <img src="/images/fabric-detail.webp" alt="Stoffmuster und Profile für die Beratung" />
           </Reveal>
           <div>
             <Reveal className="section-heading">
@@ -1133,7 +1131,7 @@ function App() {
 
       <section className="split-feature reverse" id="rollo-screen">
         <Reveal className="feature-image-wrap">
-          <img src="/images/rollo-screen.png" alt="Rollo-Screen an großem Fenster" />
+          <img src="/images/rollo-screen.webp" alt="Rollo-Screen an großem Fenster" />
         </Reveal>
         <Reveal className="feature-copy">
           <p className="section-kicker">Rollo-Screen</p>
@@ -1176,7 +1174,7 @@ function App() {
         </Reveal>
         <Reveal className="feature-image-wrap">
           <img
-            src="/images/insect-screen.png"
+            src="/images/insect-screen.webp"
             alt="Plissierter Insektenschutz an Terrassentür"
           />
         </Reveal>
