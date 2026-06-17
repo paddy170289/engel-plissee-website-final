@@ -23,6 +23,7 @@ const whatsappMessage =
 const whatsappHref = `https://wa.me/491601480614?text=${encodeURIComponent(
   whatsappMessage
 )}`;
+const web3FormsAccessKey = "e6657993-5329-4b41-9ab7-7dc4df7cb5ed";
 
 const navItems = [
   ["Startseite", "#start"],
@@ -253,7 +254,7 @@ const legalRoutes = {
         body: [
           "Auf der Website ist ein Kontaktformular vorgesehen. Bei Nutzung des Formulars werden die eingegebenen Daten zur Bearbeitung der Anfrage verarbeitet. Dazu gehören Name, E-Mail-Adresse, Telefonnummer, Adresse, Kundentyp, ausgewählte Leistungsbereiche und Nachricht.",
           "Die Übermittlung dient der Kontaktaufnahme, Beratung, Angebotserstellung und Vorbereitung möglicher Leistungen wie Aufmaß oder Montage.",
-          "Vor produktiver Nutzung ist technisch zu prüfen, wie das Formular versendet wird und ob zusätzliche Dienstleister, Spam-Schutz oder Serverfunktionen eingebunden sind."
+          "Zur technischen Übermittlung des Kontaktformulars nutzen wir Web3Forms. Die eingegebenen Daten werden an Web3Forms übermittelt und anschließend an uns weitergeleitet. Weitere Informationen zur Verarbeitung finden Sie in den Datenschutzhinweisen von Web3Forms."
         ]
       },
       {
@@ -717,33 +718,66 @@ function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showFloatingWhatsApp, setShowFloatingWhatsApp] = useState(false);
   const [customerType, setCustomerType] = useState("");
+  const [formStatus, setFormStatus] = useState({ state: "idle", message: "" });
   const routeKey = activeLegalPage?.title || (isBusinessPage ? "gewerbe" : "home");
 
   const selectBusinessInquiry = () => {
     setCustomerType("gewerbe");
   };
 
-  const handleContactSubmit = (event) => {
+  const handleContactSubmit = async (event) => {
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
     const requests = formData.getAll("request").join(", ") || "nicht ausgewählt";
-    const subject = "Anfrage über die Website";
-    const body = [
-      `Name: ${formData.get("name") || ""}`,
-      `E-Mail: ${formData.get("email") || ""}`,
-      `Telefon: ${formData.get("phone") || ""}`,
-      `Adresse: ${formData.get("address") || ""}`,
-      `Kundentyp: ${formData.get("customer-type") || customerType || ""}`,
-      `Anfrage zu: ${requests}`,
-      "",
-      "Nachricht:",
-      formData.get("message") || ""
-    ].join("\n");
+    const payload = {
+      access_key: web3FormsAccessKey,
+      subject: "Neue Anfrage über engel-plissee.com",
+      from_name: "Engel Plissee Website",
+      name: formData.get("name") || "",
+      email: formData.get("email") || "",
+      phone: formData.get("phone") || "",
+      address: formData.get("address") || "",
+      customer_type: formData.get("customer-type") || customerType || "",
+      request: requests,
+      message: formData.get("message") || "",
+      botcheck: formData.get("botcheck") || ""
+    };
 
-    window.location.href = `mailto:info@engel-plissee.com?subject=${encodeURIComponent(
-      subject
-    )}&body=${encodeURIComponent(body)}`;
+    setFormStatus({
+      state: "loading",
+      message: "Ihre Anfrage wird gesendet..."
+    });
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify(payload)
+      });
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || "Die Anfrage konnte nicht gesendet werden.");
+      }
+
+      event.currentTarget.reset();
+      setCustomerType("");
+      setFormStatus({
+        state: "success",
+        message:
+          "Vielen Dank. Ihre Anfrage wurde erfolgreich gesendet. Wir melden uns persönlich bei Ihnen zurück."
+      });
+    } catch (error) {
+      setFormStatus({
+        state: "error",
+        message:
+          "Die Anfrage konnte gerade nicht gesendet werden. Bitte versuchen Sie es erneut oder schreiben Sie direkt an info@engel-plissee.com."
+      });
+    }
   };
 
   useEffect(() => {
@@ -1281,13 +1315,20 @@ function App() {
         </Reveal>
 
         <Reveal as="form" className="contact-form" onSubmit={handleContactSubmit}>
+          <input
+            className="botcheck"
+            type="checkbox"
+            name="botcheck"
+            tabIndex="-1"
+            autoComplete="off"
+          />
           <label>
             Name
-            <input type="text" name="name" autoComplete="name" />
+            <input type="text" name="name" autoComplete="name" required />
           </label>
           <label>
             E-Mail-Adresse
-            <input type="email" name="email" autoComplete="email" />
+            <input type="email" name="email" autoComplete="email" required />
           </label>
           <label>
             Telefonnummer
@@ -1347,10 +1388,19 @@ function App() {
           </fieldset>
           <label className="full">
             Nachricht
-            <textarea name="message" rows="5" />
+            <textarea name="message" rows="5" required />
           </label>
-          <button className="primary-action form-submit" type="submit">
-            Absenden
+          {formStatus.message ? (
+            <p className={`form-status ${formStatus.state}`} role="status">
+              {formStatus.message}
+            </p>
+          ) : null}
+          <button
+            className="primary-action form-submit"
+            type="submit"
+            disabled={formStatus.state === "loading"}
+          >
+            {formStatus.state === "loading" ? "Wird gesendet..." : "Absenden"}
             <ArrowRight size={18} aria-hidden="true" />
           </button>
         </Reveal>

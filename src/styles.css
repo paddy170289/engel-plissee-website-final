@@ -1203,8 +1203,17 @@ h3 {
 
 .contact-form fieldset,
 .contact-form .full,
+.form-status,
 .form-submit {
   grid-column: 1 / -1;
+}
+
+.contact-form .botcheck {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .contact-form fieldset {
@@ -1249,6 +1258,32 @@ h3 {
   width: fit-content;
   border: 0;
   cursor: pointer;
+}
+
+.form-submit:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+
+.form-status {
+  margin: 0;
+  border: 1px solid rgba(193, 162, 116, 0.32);
+  border-radius: var(--radius);
+  padding: 13px 15px;
+  color: #3f372c;
+  background: rgba(248, 244, 236, 0.78);
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+
+.form-status.success {
+  border-color: rgba(121, 145, 104, 0.38);
+  background: rgba(239, 245, 235, 0.82);
+}
+
+.form-status.error {
+  border-color: rgba(150, 91, 72, 0.32);
+  background: rgba(250, 238, 232, 0.82);
 }
 
 .legal-hero {
