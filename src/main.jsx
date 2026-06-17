@@ -297,8 +297,6 @@ const legalRoutes = {
     title: "Allgemeine Geschäftsbedingungen",
     intro:
       "AGB-Grundlage für Beratung, Aufmaß, Angebotserstellung, Maßanfertigung, Lieferung und Montage.",
-    notice:
-      "Diese AGB dienen als Grundlage und sollten vor produktiver Nutzung rechtlich geprüft werden.",
     sections: [
       {
         title: "1. Geltungsbereich",
