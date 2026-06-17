@@ -439,9 +439,9 @@ const gallery = [
   ["/images/fabric-detail.webp", "Stoffe und Profilmuster"]
 ];
 
-function Reveal({ as: Tag = "div", className = "", children, style }) {
+function Reveal({ as: Tag = "div", className = "", children, style, ...props }) {
   return (
-    <Tag className={className} data-reveal style={style}>
+    <Tag className={className} data-reveal style={style} {...props}>
       {children}
     </Tag>
   );
@@ -724,6 +724,16 @@ function App() {
   const selectBusinessInquiry = () => {
     setCustomerType("gewerbe");
   };
+
+  useEffect(() => {
+    if (window.location.search) {
+      window.history.replaceState(
+        null,
+        "",
+        `${window.location.pathname}${window.location.hash || ""}`
+      );
+    }
+  }, []);
 
   const handleContactSubmit = async (event) => {
     event.preventDefault();
